@@ -15,12 +15,19 @@ The **Vangelis** project expands on all of the above by using autonomous low-pow
 * Low weight and portability of the nodes
 * Range of surface relays limited only by LoRa radio reach, practically up to a few kilometers in mountainous areas
 
+<figure>
+    <img src="drawing.svg" width="297" height="210"
+         alt="Vangelis architecture overview">
+    <figcaption>Vangelis architecture overview.</figcaption>
+</figure>
+
 ## Hardware
 
 The system is composed of two node types: surface and underground. Each node operates in router-client mode, which allows both client device (smartphone) connection over Bluetooth and message relaying to other nodes over LoRa.
 
-* **surface node**  powered from a 18650 cell with PV charging, equipped with a 3-5 dBi antenna; typical usage scenario is to be installed at cave entrance and relay messages further to another such node at a base camp
-*  **cave node** powered from a  LiPo battery and intended to operate without recharging for the whole period of a cave operation
+* **surface node**  powered from a 18650 cell with [PV charging](https://docs.google.com/document/d/12GIY24vLKLABg2RUTPP6yMzokr44GMzJOE4p7ngaCbI/edit#heading=h.9lmvuqjahqxl), equipped with a 3-5 dBi antenna; typical usage scenario is to be installed at cave entrance and relay messages further to another such node at a base camp;
+* **cave node** powered from a LiPo battery and intended to operate without recharging for the whole period of a cave operation
+
 ### Surface node
 Bill of materials:
 * [Clear Hinged Lid IP67 Waterproof ABS Electrical Enclosure Case junction box](https://www.ebay.co.uk/itm/304321459053)
@@ -30,7 +37,9 @@ Bill of materials:
 * [Outdoor LoRA antenna](https://store.rakwireless.com/collections/outdoor-antennas)
 * 3D-printed antenna holder, STL for RAK [3dBi Fiberglass Antenna](https://store.rakwireless.com/products/3dbi-fiber-glass-antenna) or [5dBi Fiberglass Antenna](https://store.rakwireless.com/products/5dbi-fiber-glass-antenna-supports-863-870mhz) are available
 * [5V  1.25W  250 mA photovoltaic panel](https://www.ebay.co.uk/itm/113383833070), 110mm x 69mm, 2.4mm
+
 Notes:
+
 * OLED display is optional. It's mostly useful when pairing smartphone with Meshtastic over Bluetooth using a random PIN code, but since these are impractical underground, I suggest using no PIN at all or a fixed PIN, both of which need to be configured using Meshtastic CLI prior to deployment. Since it also displays last packet information etc it's a nice to have.
 * Choice of the antenna is of paramount importance for outdoor LoRA range. Poor antenna will limit the range to tens or hundreds of meters at best, even in line of sight. With RAK 3-5 dBi antennas we easily get kilometers long range. It does not matter for underground nodes as their range is limited by rock anyway.
  
@@ -50,6 +59,7 @@ Bill of materials:
 * [Tactile 4x4x1.5 mm push button](https://www.amazon.co.uk/dp/B08F7V2Y66)
 * [USB-C male to female coupler](https://www.amazon.co.uk/dp/B0B18SLFD4)
 * [Rubber USB-C plugs](https://www.ebay.co.uk/itm/144021649084)
+
 ### Barometric pressure
 As cave nodes are located through the cave, they have no means of determining their own location as GPS signal is unavailable. Barometric pressure sensor allows to [correlate the pressure](https://en.wikipedia.org/wiki/Barometric_formula) seen by a node with altitude above mean sea level ([AMSL](https://en.wikipedia.org/wiki/Height_above_mean_sea_level)) as long as at least one surface node is equipped with GPS receiver _and_ barometric pressure sensor.
 ## Footnotes
