@@ -16,8 +16,7 @@ The **Vangelis** project expands on all of the above by using autonomous low-pow
 * Range of surface relays limited only by LoRa radio reach, practically up to a few kilometers in mountainous areas
 
 <figure>
-    <img src="drawing.svg" width="297" height="210"
-         alt="Vangelis architecture overview">
+    <img src="drawing.svg" alt="Schematic drawing of a cave with three relay nodes placed on tunnel bends and cavers communicating to end nodes using their mobile phones.">
     <figcaption>Vangelis architecture overview.</figcaption>
 </figure>
 
@@ -59,6 +58,12 @@ Bill of materials:
 * [Tactile 4x4x1.5 mm push button](https://www.amazon.co.uk/dp/B08F7V2Y66)
 * [USB-C male to female coupler](https://www.amazon.co.uk/dp/B0B18SLFD4)
 * [Rubber USB-C plugs](https://www.ebay.co.uk/itm/144021649084)
+
+
+<figure>
+    <img src="24-01-29 11-35-50 3052.jpg" alt="Yellow, small 3D printed plastic case with antenna.">
+    <figcaption>Assembled TacMesh case.</figcaption>
+</figure>
 
 ### Barometric pressure
 As cave nodes are located through the cave, they have no means of determining their own location as GPS signal is unavailable. Barometric pressure sensor allows to [correlate the pressure](https://en.wikipedia.org/wiki/Barometric_formula) seen by a node with altitude above mean sea level ([AMSL](https://en.wikipedia.org/wiki/Height_above_mean_sea_level)) as long as at least one surface node is equipped with GPS receiver _and_ barometric pressure sensor.
