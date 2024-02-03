@@ -17,7 +17,7 @@ The **Vangelis** project expands on all of the above by using autonomous low-pow
 
 <figure>
     <img src="drawing.svg" alt="Schematic drawing of a cave with three relay nodes placed on tunnel bends and cavers communicating to end nodes using their mobile phones.">
-    <figcaption>Vangelis architecture overview.</figcaption>
+    <figcaption><em><center>Vangelis architecture overview.</center></em></figcaption>
 </figure>
 
 ## Hardware
@@ -62,7 +62,7 @@ Bill of materials:
 
 <figure>
     <img src="24-01-29 11-35-50 3052.jpg" alt="Yellow, small 3D printed plastic case with antenna.">
-    <figcaption>Assembled TacMesh case.</figcaption>
+    <figcaption><em><center>Assembled TacMesh case.</center></em></figcaption>
 </figure>
 
 ### Barometric pressure
