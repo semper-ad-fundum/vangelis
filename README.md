@@ -1,6 +1,6 @@
 Long range, low power messaging system based on Meshtastic relays suitable for underground communications.
 
-![Vangelis node placed by a cave stream]("24-02-10 13-07-46 3107.jpg" "Vangelis node placed by a cave stream")
+![Vangelis node placed by a cave stream](24-02-10_13-07-46_3107.jpg "Vangelis node placed by a cave stream")
 
 ## Design principles
 Natural caves are challenging as it comes to communications due to irregular cavity shapes, presence of water and general difficulty of installing any kind of equipment in an environment where everything has to be carried on human's back over hundreds of meters vertically. There are numerous existing solutions, each with its own challenges:
@@ -20,7 +20,7 @@ The **Vangelis** project expands on all of the above by using autonomous low-pow
 * Range of surface relays limited only by LoRa radio reach, practically up to a few kilometers in mountainous areas
 * Consumer smartphones connecting over Bluetooth to relay nodes using [Meshtastic app](https://meshtastic.org/downloads/) to send and receive messages
 
-![A caver reading message on a smartphone standing next to a relay node]("24-02-10 13-12-22 3110.jpg" "Typical usage scenario")
+![A caver reading message on a smartphone standing next to a relay node](24-02-10_13-12-22_3110.jpg "Typical usage scenario")
 
 ## Hardware
 
@@ -29,7 +29,7 @@ The system is composed of two node types: surface and underground. Each node ope
 * **surface node** 
 * **cave node** powered from a LiPo battery and intended to operate without recharging for the whole period of a cave operation
 
-![Three small cave nodes and two larges surface nodes placed next to each other]("24-02-12 14-24-37 3136.jpg" "Comparison of cave nodes (left) and surface nodes (right)")
+![Three small cave nodes and two larges surface nodes placed next to each other](24-02-12_14-24-37_3136.jpg "Comparison of cave nodes (left) and surface nodes (right)")
 
 ### Surface node
 
@@ -71,7 +71,7 @@ Bill of materials:
 * [USB-C male to female coupler](https://www.amazon.co.uk/dp/B0B18SLFD4)
 * [Rubber USB-C plugs](https://www.ebay.co.uk/itm/144021649084)
 
-![Yellow, small 3D printed plastic case with antenna]("24-01-29 11-35-50 3052.jpg" "Assembled TacMesh case")
+![Yellow, small 3D printed plastic case with antenna](24-01-29_11-35-50_3052.jpg "Assembled TacMesh case")
 
 ### Future improvements
 
