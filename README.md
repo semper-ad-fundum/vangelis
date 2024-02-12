@@ -20,7 +20,7 @@ The **Vangelis** project expands on all of the above by using autonomous low-pow
 * Range of surface relays limited only by LoRa radio reach, practically up to a few kilometers in mountainous areas
 * Consumer smartphones connecting over Bluetooth to relay nodes using [Meshtastic app](https://meshtastic.org/downloads/) to send and receive messages
 
-![A caver reading message on a smartphone standing next to a relay node](24-02-10_13-12-22_3110.jpg "Typical usage scenario")
+![A caver reading message on a smartphone standing next to a relay node](24-02-10_13-07-46_3107.jpg "Typical usage scenario")
 
 ## Hardware
 
