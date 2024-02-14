@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="297mm"
-   height="210mm"
-   viewBox="0 0 297 210"
+   width="150mm"
+   height="150mm"
+   viewBox="0 0 150 150"
    version="1.1"
    id="svg12368"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
@@ -25,11 +25,11 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.5946522"
-     inkscape:cx="418.73216"
-     inkscape:cy="472.54513"
-     inkscape:window-width="1500"
-     inkscape:window-height="952"
+     inkscape:zoom="0.5"
+     inkscape:cx="420"
+     inkscape:cy="470"
+     inkscape:window-width="1504"
+     inkscape:window-height="1002"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -105,7 +105,7 @@
      id="layer1">
     <g
        id="g16549"
-       transform="translate(-154.67242,48.46869)"
+       transform="translate(-233.6092,11.526242)"
        clip-path="url(#clipPath183806)">
       <path
          style="fill:none;stroke:#1a1a18;stroke-width:0.499992;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:22.9256;stroke-dasharray:none;stroke-opacity:1"
@@ -238,14 +238,15 @@
     </g>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444444px;font-family:ArialMT;-inkscape-font-specification:'ArialMT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#2b0000;stroke:#2b0000;stroke-width:0.264583"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:ArialMT;-inkscape-font-specification:'ArialMT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#2b0000;stroke:#2b0000;stroke-width:0.264583"
        x="106.20113"
        y="59.905853"
        id="text16553"
-       clip-path="url(#clipPath183802)"><tspan
+       clip-path="url(#clipPath183802)"
+       transform="translate(-78.936783,-36.942448)"><tspan
          sodipodi:role="line"
          id="tspan16551"
-         style="stroke-width:0.264583;font-size:5.64444444px"
+         style="font-size:5.64444px;stroke-width:0.264583"
          x="106.20113"
          y="59.905853">Wet Sink cave, Gloucestershire, England</tspan></text>
     <text
@@ -254,7 +255,8 @@
        x="120.0168"
        y="66.308792"
        id="text16557"
-       clip-path="url(#clipPath183798)"><tspan
+       clip-path="url(#clipPath183798)"
+       transform="translate(-78.936783,-36.942448)"><tspan
          sodipodi:role="line"
          id="tspan16555"
          style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:ArialMT;-inkscape-font-specification:'ArialMT Italic';stroke-width:0.264583"
@@ -273,7 +275,7 @@
          y="98.667503" /></text>
     <g
        id="g183617"
-       transform="translate(-23.292226,6.3194104)"
+       transform="translate(-102.22901,-30.623038)"
        clip-path="url(#clipPath183794)">
       <text
          xml:space="preserve"
