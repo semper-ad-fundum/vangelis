@@ -84,6 +84,7 @@ Assembly notes:
 * Do not put too much resin at the USB port base as it will bond the middle insert and battery, making the electronics impossible to remove for repair or firmware upgrade; 2.5-5 ml is probably just enough
 * Do not glue the battery to the internal insert
 * 3D printer precision depends wildly on the model and printing speed - you will most likely find especially the M2.5 brass inserts too loose
+* LiPo batteries come with different plug sizes and polarization - please double check that battery red cable (+) is linked to the inside contact, closer to the USB-C port on the WisBlock Base board
 
 Other parts:
 
