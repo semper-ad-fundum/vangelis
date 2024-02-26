@@ -54,22 +54,47 @@ Notes:
 
 Durable, waterproof case made of 3D-printed plastic, indented to be operated in hostile environment and simplified operations. Prototype weight ~130 grams. The only user interface is the power button on the top, that is big enough to be operated in gloves. The WisBlock board has a green, blinking LED which is visible through the plastic case and serves as an indicator that the device is live and transmitting. The case has an USB-C port on the bottom that in normal conditions is closed with a rubber seal.
 
-Bill of materials:
+#### Bill of materials
+
+RAK Wireless parts:
+
+* Use [this link](https://rakwireless.kckb.st/15fac583) - 5% for the project support
+* `BYKKDT` at checkout - 3% discount
+* `WELCOMEBACK10` at checkout - 10% discount
+
+Order:
 
 * [RAK WisBlock Mini Base Board RAK19003](https://store.rakwireless.com/products/wisblock-base-board-rak19003)
-* [RAK LoRa Core Module RAK4631](https://store.rakwireless.com/products/nordic-nrf52840-ble-core-module-for-lorawan-with-lora-sx1262-rak4631-rak4631-c)
+* [RAK LoRa Core Module RAK4631](https://store.rakwireless.com/products/nordic-nrf52840-ble-core-module-for-lorawan-with-lora-sx1262-rak4631-rak4631-c) (includes [BLE-PCB Bluetooth antenna](https://store.rakwireless.com/products/ble-pcb-antenna-5-5dbi) and [PCB LoRa antenna](https://store.rakwireless.com/products/pcb-antenna-for-lora))
 * [RAK barometric pressure sensor RAK1902](https://store.rakwireless.com/products/rak1902-kps22hb-barometric-pressure-sensor)
-* [LoRa 2 dBi SubG antenna](https://store.rakwireless.com/products/lora-antenna)
 * [IPEX to RP-SMA connector](https://store.rakwireless.com/products/ipex-to-sma-connector)
-* [BLE-PCB Bluetooth antenna](https://store.rakwireless.com/products/ble-pcb-antenna-5-5dbi)
-* [TacMesh Waterproof Enclosure](https://www.thingiverse.com/thing:5923930/) 3D printed from PLA, [assembly instructions](https://youtu.be/gpnivx2jVRk)
+* [LoRa 2 dBi SubG antenna](https://store.rakwireless.com/products/lora-antenna)
+
+The above set is a "safe default", sourced from a single supplier with predictable quality. RAK SubG antenna is not flexible which is a bit of disadvantage. There's quite a lot of LoRa antenna suppliers available on electronic stores but quality of most of them is unpredictable. These two can be considered as flexible alternatives to RAK SubG, but they will require slightly different assembly:
+
+* Amazon UK: Flexible [IPEX-1 TX868-JZLW-15](https://www.amazon.co.uk/TX868-JZLW-15-Equipment-Logistics-Construction-Enthusiasts/dp/B0978Q7N7C/)
+* Amazon DE: [FLEXI-SMA-868](https://www.amazon.de/FLEXI-SMA-868-Antennen-Geschirrantennen-RF-Antenne-Satelliten-Ausr%C3%BCstung/dp/B09HMMH8ZY)
+
+3D-printed:
+
+* [TacMesh Waterproof Enclosure](https://www.thingiverse.com/thing:5923930/) 3D printed from PLA, [assembly instructions](https://youtu.be/gpnivx2jVRk) (in German)
+
+Assembly notes:
+
+* Do not put too much resin at the USB port base as it will bond the middle insert and battery, making the electronics impossible to remove for repair or firmware upgrade; 2.5-5 ml is probably just enough
+* Do not glue the battery to the internal insert
+* 3D printer precision depends wildly on the model and printing speed - you will most likely find especially the M2.5 brass inserts too loose
+
+Other parts:
+
+* [M2.5×4×3.5 threaded brass inserts](https://www.amazon.co.uk/dp/B07SYP6PRJ)
 * [Waterproof on-off switch](https://www.amazon.co.uk/dp/B0BKK4RXYX)
 * [3.7V 2000 mAh LiPo battery](https://www.amazon.co.uk/dp/B08HD33ZKB)
 * [Rubber washer 16x6x1.5 mm](https://www.amazon.co.uk/dp/B01N7WI68Z)
 * [Rubber O-ring 49x45x2 mm](https://www.amazon.co.uk/dp/B0C1524ZMR)
-* [Tactile 4x4x1.5 mm push button](https://www.amazon.co.uk/dp/B08F7V2Y66) not installed in the cave prototypes, mostly needed for node reset for firmware upgrade
 * [USB-C male to female coupler](https://www.amazon.co.uk/dp/B0B18SLFD4)
 * [Rubber USB-C plugs](https://www.ebay.co.uk/itm/144021649084)
+* Optional: [Tactile 4x4x1.5 mm push button](https://www.amazon.co.uk/dp/B08F7V2Y66) not installed in the cave prototypes and mostly needed for node reset for firmware upgrade
 
 ![Yellow, small 3D printed plastic case with antenna](24-01-29_11-35-50_3052.jpg "Assembled TacMesh case")
 
