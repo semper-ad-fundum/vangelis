@@ -101,7 +101,7 @@ Other parts:
 
 ### Future improvements
 
-#### Barometric pressure
+#### Barometric altitude
 
 As cave nodes are located through the cave, they have no means of determining their own location as GPS signal is unavailable. Barometric pressure sensor allows to [correlate the pressure](https://en.wikipedia.org/wiki/Barometric_formula) seen by a node with altitude above mean sea level ([AMSL](https://en.wikipedia.org/wiki/Height_above_mean_sea_level)) as long as at least one surface node is equipped with GPS receiver _and_ barometric pressure sensor. The surface node would then operate as the barometric/altitude reference for the whole network. With this improvement, the Meshtastic application would see the nodes identified by their depth rather than merely names, e.g.:
 
@@ -117,7 +117,7 @@ Messages sent to the channels could be also identified by the depth of the respe
 
 Long, tight crawls are especially challenging for connecting using relay nodes due to relatively short (~10 m max in our tests) radio range and high risk of the nodes being displaced or damaged by cavers moving with bags in confined space. In theory, the nodes could be also connected using a serial cable connected to the USB-C port, which could replace the radio link through the problematic tunnel. The Meshtastic firmware currently supports [serial communications](https://meshtastic.org/docs/configuration/module/serial/) but not exactly for node-to-node links. The length of such a hypothetical link and how it would need to be powered is also unknown.
 
-## Testing
+# Wet Sink testing
 
 Initial testing in real-life conditions was performed with [GCRG](https://gcrg.org.uk) in [Wet Sink cave](https://en.wikipedia.org/wiki/Slaughter_Stream_Cave) which offers all typical karst cave features - pitches, chokes, tight squeezes, water.
 
@@ -145,6 +145,71 @@ The testing was intentionally performed in confined parts of the cave to check t
 In spacious caves, both horizontal and vertical, there's no reason why the links couldn't reach the usual surface line-of-sight range, that is up to 200 m in case of the 2 dBi antennas. 
 
 The above drawings are based on the 2004 survey drawn by Paul W. Taylor, simplified for readability.
+
+# Emmer Green mine testing
+
+Testing was performed in March 2024 in Emmer Green chalk mine
+to which access was kindly provided by 89th Scouts Group. The
+testing session had two objectives: range testing and battery life
+in real-world mine conditions.
+
+## Range testing
+
+Range testing used the Range Test module which sends periodic messages
+with sequentially increasing numbers (`seq 1`, `seq 2` etc). The module
+was configured to send messages every 15 seconds. This makes the
+testing procedure as simple as walking away from the last placed node
+until notifications are heard for incoming messages. When they no longer
+are, we mark end of range.
+
+1. One node with 5 dBi antenna was placed at the bottom of the
+   entrance shaft with range test mode enabled 
+2. Second node with 3 dBi antenna was moved in tunnels away from
+   the entrance shaft.
+
+**Result:** the 3 dBi node had stable connection in all mine tunnels
+NW, NE, W and E from the pitch, marked in red colour on the map below.
+In the S tunnel the range was ~70 m walking distance including one sharp
+bend E through a lower entrance. The node was left under the
+second capped mine shaft, as marked on the map.
+
+3. Another mobile node with 2 dBi antenna was again being carried
+   in the remaining tunnels.
+   
+**Result:** the 2 dBi mobile node had stable connection in all 
+mine tunnels, including two underground bunkers reinforced with
+corrugated steel (Nissen huts), through numerous bends and squeezes.
+The 2 dBi node range is marked with the pale green colour on the map.
+
+![Map of the Emmer Green mine with reception range covering all mine](scouts_mine.png)
+
+## Battery life testing
+
+One 2 dBi cave node was left at the bottom of the entrance shaft
+and retrieved a week later. Remaining nodes were placed on the surface
+to relay messages from the bottom to my house, which provided periodic
+device status updates, including battery level and temperature.
+
+At the end of the range testing the cave node was at 88% which
+was the starting condition for the battery life test on 5 March. The temperature
+reported by the device remained around 12°C through the whole test.
+
+| Timestamp | Battery [%] |
+| --------- | ----------- |
+| 2024-03-05T19:54 | 88% |
+| 2024-03-06T10:10 | 78% |
+| 2024-03-07T18:02 | 60% |
+| 2024-03-08T09:26 | 56% |
+| 2024-03-09T14:12 | 42% |
+| 2024-03-11T12:00 | 0% |
+
+**Result:** the node worked stable for 6 days, reporting almost
+linear battery deterioration over that period. The node sent the last
+status message around noon on 11 March, reporting battery depleted
+to zero.
+
+![Battery life chart](battery.png)
+
 
 ## Footnotes
 
