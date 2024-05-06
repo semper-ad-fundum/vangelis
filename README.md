@@ -390,7 +390,7 @@ The lengths of legs expectedly varied depending on the passage profile and turns
 
 With 10 nodes we faced the Meshtastic hard-coded limitation of maximum 7 hops between end nodes, so the end-to-end tests had to be for now limited to two segments of this length. The time for a message to traverse the whole link was several seconds.
 
-![Tracing route of 7 hops between two end nodes](24-02-10_13-07-46_3107.jpg)
+![Tracing route of 7 hops between two end nodes](24-05-05 13-29-30 3977.png)
 
 # Footnotes
 
