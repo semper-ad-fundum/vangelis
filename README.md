@@ -380,6 +380,17 @@ to zero.
 
 ![Battery life chart](battery.png)
 
+### Wet Sink Chunnel testing
+
+The second Wet Sink testing was conducted with 10 newly built cave nodes. We decided to start just before the Gnome Gardens, as the (mostly vertical) entrance series were covered previously. Ten nodes were placed in a chain ending on the Desert Junction, which is the typical Cave Link comms team location during rescue.
+
+The lengths of legs expectedly varied depending on the passage profile and turns, usually ranging from 20-30 m and in the spacious Chunnel exceeding 60 m. Should we have taken nails or wood screws allowing to hang the nodes from the ceiling, the legs would be probably even longer because it was the floor in the Chunnel that was quite rocky and uneven.
+
+![Wet Sink Chunnel testing plan](ps_20240507001402.png)
+
+With 10 nodes we faced the Meshtastic hard-coded limitation of maximum 7 hops between end nodes, so the end-to-end tests had to be for now limited to two segments of this length. The time for a message to traverse the whole link was several seconds.
+
+![Tracing route of 7 hops between two end nodes](24-02-10_13-07-46_3107.jpg)
 
 # Footnotes
 
