@@ -392,6 +392,8 @@ With 10 nodes we faced the Meshtastic hard-coded limitation of maximum 7 hops be
 
 ![Tracing route of 7 hops between two end nodes](24-05-05_13-29-30_3977.png)
 
+Video from two locations has been recorded: https://www.youtube.com/watch?v=ZQZXCrsZBEA&t=205s
+
 # Footnotes
 
 [^1]: M. D. Bedford; G. A. Kennedy [Modeling Microwave Propagation in Natural Caves Passages](https://ieeexplore.ieee.org/abstract/document/6933914/),  IEEE Transactions on Antennas and Propagation, 2014
