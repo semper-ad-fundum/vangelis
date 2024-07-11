@@ -5,7 +5,7 @@ Long range, low power messaging system based on Meshtastic relays suitable for u
 # Design principles
 Natural caves are challenging as it comes to communications due to irregular cavity shapes, presence of water and general difficulty of installing any kind of equipment in an environment where everything has to be carried on human's back over hundreds of meters vertically. There are numerous existing solutions, each with its own challenges:
 
-* Wired telephone is a reliable solution, however poses a significant investment due to the above challenges, plus it is easily damaged in confined or gravel passages.
+* Wired telephone is a reliable solution, however poses a significant investment due to the above challenges, plus it is easily damaged in confined passages, boulder chokes, gravel etc.
 * [Through-the-earth radio communications](https://en.wikipedia.org/wiki/Through-the-earth_mine_communications) using very low radio frequencies (HeyPhone, Nikola, CaveLink) are the most popular _ad-hoc_ communications solution during cave rescue or expeditions . Obtaining a reliable link at depths below hundreds of meters however is a lottery as many factors from geology to weather impact attenuation even at  low frequencies.
 * Underground communication links based on radio repeaters was discussed at least since 2014[^1]. _Sybet_ came up with industrial solution [SPELLCOM](https://sybet.eu/batnode/)  using radio repeaters to relay voice communications over underground cavities.
 
@@ -26,7 +26,7 @@ The **Vangelis** project expands on all of the above by using autonomous low-pow
 
 The system is composed of two node types: surface and underground. Each node operates in router-client mode, which allows both client device (smartphone) connection over Bluetooth and message relaying to other nodes over LoRa.
 
-* **surface node** 
+* **surface node**
 * **cave node** powered from a LiPo battery and intended to operate without recharging for the whole period of a cave operation
 
 ![Three small cave nodes and two larges surface nodes placed next to each other](24-02-12_14-24-37_3136.jpg "Comparison of cave nodes (left) and surface nodes (right)")
@@ -49,7 +49,7 @@ Notes:
 
 * OLED display is optional. It's mostly useful when pairing smartphone with Meshtastic over Bluetooth using a random PIN code, but since these are impractical underground, the nodes are configured to use no PIN at all. Since it also displays last packet information etc it's a nice to have.
 * Choice of the antenna is of paramount importance for outdoor LoRA range. Poor antenna will limit the range to tens or hundreds of meters at best, even in line of sight. With RAK 3-5 dBi antennas we easily get kilometers long range. It does not matter for underground nodes as their range is limited by rock anyway.
- 
+
 ## Cave node
 
 Durable, waterproof case made of 3D-printed plastic, indented to be operated in hostile environment and simplified operations. Prototype weight ~130 grams. The only user interface is the power button on the top, that is big enough to be operated in gloves. The WisBlock board has a green, blinking LED which is visible through the plastic case and serves as an indicator that the device is live and transmitting. The case has an USB-C port on the bottom that in normal conditions is closed with a rubber seal.
@@ -102,18 +102,37 @@ Other parts:
 
 # Flashing firmware
 
-Make sure you have **the same version** on all devices. There are ocassional incompatibilities between even minor
-versions. I usually target for the latest _beta_ release. Generally, new releases ship many bugfixes so it's
+There's two firmwares now available for testing:
+
+* Mainline Meshtastic firmware, which is stable and feature-rich but has the
+  hop limit hardcoded to 7 nodes
+* Vangelis firmware, which is experimantal but has the hop limit removed
+
+**Note:** if you get weird errors, timeouts etc first check the USB cable connection, which may be especially likely if mud or dust get into your external USB port. Try to remove and reinsert the cable, blow with compressed air a few times. Last resort, you need to remove the board from the 3D printed case and it should always work.
+
+## Flashing Meshtastic firmware
+
+Make sure you have **the same version** on all devices. There are ocassional incompatibilities between even minor versions. I usually target for the latest _beta_ release. Generally, new releases ship many bugfixes so it's
 worth keeping them up to date.
 
-Connect your device over USB cable and use [Meshtastic Web Flasher](https://flasher.meshtastic.org)
-to download the right firmware UF2 file and, which is especially useful, switch the board into bootloader (DFU) mode.
-This saves you opening the case and pulling out the board only to press the reset button twice. Please note that
-if your board was already flashed with firmware <2.2, it won't work and you need to use the button.
+Connect your device over USB cable and use [Meshtastic Web Flasher](https://flasher.meshtastic.org) to download the right firmware UF2 file and, which is especially useful, switch the board into bootloader (DFU) mode. This saves you opening the case and pulling out the board only to press the reset button twice. Please note that if your board was already flashed with firmware <2.2, it won't work and you need to use the button.
 
-When the board goes into DFU mode, it becomes visible as an USB storage device to the computer and you will
-see a new RAK4631 folder on your computer, where you simply copy the UF2 file. If you don't, power cycle, reconnect
+When the board goes into DFU mode, it becomes visible as an USB storage device to the computer and you will see a new RAK4631 folder on your computer, where you simply copy the UF2 file. If you don't, power cycle, reconnect
 and try the DFU mode again.
+
+## Vangelish firmware
+
+You can either:
+
+* Clone the [vangelis-firmware](https://github.com/semper-ad-fundum/vangelis-firmware.git) and build using PlatformIO
+* Download the built [UF2 firmware](https://github.com/semper-ad-fundum/vangelis-firmware/releases/tag/v1.0.0) and copy it to the device using the above instructions (not tested)
+
+Command to flash firmware built using PlatformIO is:
+
+```
+platformio run --environment rak4631 --target upload
+```
+Advantage of PlatformIO is that it will put your firmware in DFU mode automatically.
 
 # Configure
 
@@ -204,13 +223,13 @@ Please note these settings are designed for **underground use cases only**. The 
 * `telemetry.environment_measurement_enabled true` — do periodically send the barometric pressure and temperature measurements
 * `lora.override_duty_cycle true` — **illegal on surface** but makes sense in a cave
 * `position.gps_enabled false` — don't waste resources on sending and updating GPS position
-* `position.fixed_position false` —  don't store and send any fixed position configured previously 
+* `position.fixed_position false` —  don't store and send any fixed position configured previously
 * `lora.sx126x_rx_boosted_gain true` —  trade a bit of battery life for better reception
 * `device.button_gpio 33` — fixes an issue where the board believes barometric sensor sends a `long button press` and shuts down
 * `device.rebroadcast_mode LOCAL_ONLY` — don't forward traffic from other meshes
 
 The folowing options create a new default channel (the mesh _must_ have one with index `0`) and
-an [Admin channel](https://meshtastic.org/docs/configuration/remote-admin/) that allows you to reconfigure other nodes remotely. 
+an [Admin channel](https://meshtastic.org/docs/configuration/remote-admin/) that allows you to reconfigure other nodes remotely.
 
 * `--ch-set name "vangelis" --ch-set psk "base64:9Z0jb0WvHgZy1S45NS2okNU5bM0IRlMh7aYMe8C4g+E="  --ch-index 0`
 * `--ch-set name "admin" --ch-set psk "base64:knz/eAAve3bM1nUgpI9D0ZKzQh0n1g2ULSjcYfsMvhY=" --ch-index 1`
@@ -255,14 +274,14 @@ but are disadvantages for the specific cave use cases:
 
 * Limit of maximum 7 hops imposed by 3 bits hop counter in the wire protocol. Firmware recompilation
   is easy but the hop limit isn't just matter of increasing a variable, it would require changing the
-  bit width in the actual protocol. What can be done in firmware is to disable the hop limit checks 
+  bit width in the actual protocol. What can be done in firmware is to disable the hop limit checks
   for Vangelis firmware, but this needs more testing.
 * Meshtastic is a chatty ecosystem where nodes periodically send various metadata to discover and
   organize the mesh. For that reason the firmware also observes various hardcoded limits, for example
   limiting sending of any packets when duty cycle is exceeded and not sending _some_ packets when
   channel utilization exceeds arbitrary thresholds. One of the first features to be impacted by these
   limits is Range Test module, which is quite useful when building the initial cave link.
-   
+
 ## Barometric altitude
 
 As cave nodes are located through the cave, they have no means of determining their own location as GPS signal is unavailable. Barometric pressure sensor allows to [correlate the pressure](https://en.wikipedia.org/wiki/Barometric_formula) seen by a node with altitude above mean sea level ([AMSL](https://en.wikipedia.org/wiki/Height_above_mean_sea_level)) as long as at least one surface node is equipped with GPS receiver _and_ barometric pressure sensor. The surface node would then operate as the barometric/altitude reference for the whole network. With this improvement, the Meshtastic application would see the nodes identified by their depth rather than merely names, e.g.:
@@ -312,7 +331,7 @@ Initial testing in real-life conditions was performed with [GCRG](https://gcrg.o
 ![Cross Stream Junction with a relay](wet_sink_cross2.svg "Cross Stream Junction with a relay")
 
 The testing was intentionally performed in confined parts of the cave to check the worst case scenario first and the above distances indicate performance of the system under such conditions.
-In spacious caves, both horizontal and vertical, there's no reason why the links couldn't reach the usual surface line-of-sight range, that is up to 200 m in case of the 2 dBi antennas. 
+In spacious caves, both horizontal and vertical, there's no reason why the links couldn't reach the usual surface line-of-sight range, that is up to 200 m in case of the 2 dBi antennas.
 
 The above drawings are based on the 2004 survey drawn by Paul W. Taylor, simplified for readability.
 
@@ -333,7 +352,7 @@ until notifications are heard for incoming messages. When they no longer
 are, we mark end of range.
 
 1. One node with 5 dBi antenna was placed at the bottom of the
-   entrance shaft with range test mode enabled 
+   entrance shaft with range test mode enabled
 2. Second node with 3 dBi antenna was moved in tunnels away from
    the entrance shaft.
 
@@ -345,8 +364,8 @@ second capped mine shaft, as marked on the map.
 
 3. Another mobile node with 2 dBi antenna was again being carried
    in the remaining tunnels.
-   
-**Result:** the 2 dBi mobile node had stable connection in all 
+
+**Result:** the 2 dBi mobile node had stable connection in all
 mine tunnels, including two underground bunkers reinforced with
 corrugated steel (Nissen huts), through numerous bends and squeezes.
 The 2 dBi node range is marked with the pale green colour on the map.
